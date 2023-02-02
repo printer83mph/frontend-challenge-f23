@@ -2,7 +2,7 @@
 
 Welcome to the Penn Labs Frontend Challenge!
 
-If you have already done this challenge, there's a [section below](https://www.notion.so/Frontend-Challenge-Fall-22-d6c03559ee1d4f1f9f56aa6836b7caba) for you. 
+If you have already done this challenge, there's a [section below](https://www.notion.so/Frontend-Challenge-Fall-22-d6c03559ee1d4f1f9f56aa6836b7caba) for you.
 
 In this challenge, you will be building a product called Penn Course Cart in React! The goal of this challenge is for you to demonstrate:
 
@@ -15,7 +15,7 @@ More concretely, you will build an interface where users can explore computer sc
 ## Getting Started
 
 1. Copy this [repository](https://github.com/pennlabs/frontend-challenge) to your own GitHub account by clicking the green "use this template" button. You will have to make a Github account if you don't already have one. **Be sure to create a private repository.** **You will be submitting a ZIP file at the end of the technical.**
-2. [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) the repository you just made to your own computer. 
+2. [Clone](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) the repository you just made to your own computer.
 
 ```bash
 git clone https://github.com/pennlabs/frontend-challenge-f22.git
@@ -25,96 +25,97 @@ git clone https://github.com/pennlabs/frontend-challenge-f22.git
 
 4. Navigate to the cloned directory in the command line and run `yarn` or `npm install`
 
-5. Run `yarn start` or `npm start`
+5. Run `yarn dev` or `npm run dev`
 
-**Note:** This project is bootstrapped with [Create React App (CRA)](https://github.com/facebook/create-react-app) using [Typescript](https://www.typescriptlang.org/), so hot-reloading has been configured. This means after you run `yarn start` or `npm start`, the application will be recompiled automatically after a file is edited.
+**Note:** This project was created with [Vite](https://vitejs.dev/) using [Typescript](https://www.typescriptlang.org/), so hot-reloading has been configured. This means after you run `yarn dev` or `npm run dev`, the application will be recompiled automatically after a file is edited.
 
 ## General Structure
 
-We have provided minimal starter code with the following structure. 
+We have provided minimal starter code with the following structure.
 
 ```
-public/
-  index.html           Root HTML file for each page
+index.html           Root HTML file for each page
 
 src/                   Where the JS logic is
   components/          Contains all React components
-    Cart.tsx           Basic component for the course cart
-    Courses.tsx        Basic component for rendering courses
-    Nav.tsx            Basic component for the navbar
+    cart.tsx           Basic component for the course cart
+    courses.tsx        Basic component for rendering courses
+    nav.tsx            Basic component for the navbar
     ...                Feel free to add other components
 
   data/                Contains data rendered by the components
     courses.json       Contains information on CIS courses at Penn
 
-  App.css              CSS for the app
-  App.tsx              Root component for the app
+  app.tsx              Root component for the app
   index.tsx            Renders the React app
   ...
 ```
 
 ## Features
 
-Your application should implement the following features. 
+Your application should implement the following features.
 
 1. **Explore Courses**
-    
-    If you view `src/components/Courses.js`,  you'll see that it is rendering some of the courses data from `src/data/courses.json` What you need to do is design a more robust way to display this courses information. You should display all information contained in the JSON — though put some thought into how to go about doing this. For example, you might only want to show the description once the user clicks on the course.
-    
+
+   If you view `src/components/courses.js`, you'll see that it is rendering some of the courses data from `src/data/courses.json` What you need to do is design a more robust way to display this courses information. You should display all information contained in the JSON — though put some thought into how to go about doing this. For example, you might only want to show the description once the user clicks on the course.
+
 2. **Search and Filter**
-    
-    At the minimum, the user should be able to:
-    
-    - Type into a search bar to find courses by title and description
-    - Filter courses based on number
+
+   At the minimum, the user should be able to:
+
+   - Type into a search bar to find courses by title and description
+   - Filter courses based on number
+
 3. **Add courses to your cart**
-    - A user should be able to add a subset of these courses to their cart. The user should not be able to add more than 7 courses to their cart.
-    - When a user adds a course, this addition should be reflected in:
-        - How that cart is rendered
-        - How that course is rendered (e.g. there should not still be a button to add that course to the cart, and maybe the text should be grayed out)
+   - A user should be able to add a subset of these courses to their cart. The user should not be able to add more than 7 courses to their cart.
+   - When a user adds a course, this addition should be reflected in:
+     - How that cart is rendered
+     - How that course is rendered (e.g. there should not still be a button to add that course to the cart, and maybe the text should be grayed out)
 4. **Checkout cart**
-    - Allow users to "checkout" their current cart, which takes the user to a new page, containing a "receipt" with the courses they checked out with. This should be implemented with routing, eg. with [React Router](https://reactrouter.com/en/main). The new page **must** show a different URL in the address bar and get the courses in the receipt using URL or query parameters.
+   - Allow users to "checkout" their current cart, which takes the user to a new page, containing a "receipt" with the courses they checked out with. This should be implemented with routing, eg. with [React Router](https://reactrouter.com/en/main). The new page **must** show a different URL in the address bar and get the courses in the receipt using URL or query parameters.
 5. **View cart**
-    - The user should be able to click a button to view their cart.
-        - If the cart has no items in it, tell the user that their cart is empty.
-        - If the cart has courses in it, display the courses and relevant information about them.
+   - The user should be able to click a button to view their cart.
+     - If the cart has no items in it, tell the user that their cart is empty.
+     - If the cart has courses in it, display the courses and relevant information about them.
 6. **Additional features**
-    
-    If you finish early, feel free to add an additional feature! Here are some ideas.
-    - Let users rank courses in order of preference using a drag and drop menu
-    - Integrate data from the Penn Courses server
-        - Note that we added the line `"proxy": "[https://penncourseplan.com](https://penncourseplan.com/)"` to `package.json`. This proxy will allow you to make requests to the Penn Courses backend without running into CORS issues.
-        - The [“Retrieve Course” endpoint](https://penncourseplan.com/api/documentation/#tag/PCx-Course/operation/Retrieve%20Course) should have all the data you need to add information for a specific course, but you are welcome to use any endpoint that doesn’t require authentication.
-        - Tip: use semesters from Spring 2022 and earlier - they will have 3-digit course codes that match the `courses.json` data.
-        - Example:
-    
-        ```jsx
-        fetch('/api/base/2022A/courses/CIS-120/')
-          .then(res => res.json())
-          .then(console.log);
-        ```
+
+   If you finish early, feel free to add an additional feature! Here are some ideas.
+
+   - Let users rank courses in order of preference using a drag and drop menu
+   - Integrate data from the Penn Courses server
+
+     - Note that we added `proxy: { '/api': 'https://penncourseplan.com' }` to `vite.config.ts`. This proxy will allow you to make requests to the Penn Courses backend without running into CORS issues.
+     - The [“Retrieve Course” endpoint](https://penncourseplan.com/api/documentation/#tag/PCx-Course/operation/Retrieve%20Course) should have all the data you need to add information for a specific course, but you are welcome to use any endpoint that doesn’t require authentication.
+     - Tip: use semesters from Spring 2022 and earlier - they will have 3-digit course codes that match the `courses.json` data.
+     - Example:
+
+     ```jsx
+     fetch('/api/base/2022A/courses/CIS-120/')
+       .then((res) => res.json())
+       .then(console.log);
+     ```
+
 7. **Code quality**
-    
-    These items are totally optional, but a great opportunity to demonstrate your engineering skills!
-    
-    - Turn on Typescript’s `strictNullChecks` and `noImplicitAny`
-    - Add a [linter](https://eslint.org/)
-    - Add unit or integration tests
+
+   These items are totally optional, but a great opportunity to demonstrate your engineering skills!
+
+   - Turn on Typescript’s `strictNullChecks` and `noImplicitAny`
+   - Add a [linter](https://eslint.org/)
+   - Add unit or integration tests
 
 ## Additional Tips
 
 - For styling, use whatever you want:
-    - CSS frameworks (Bulma, Bootstrap)
-    - CSS files (or SCSS)
-    - CSS modules
-    - CSS-in-JS
-    - `styled-components`
+  - CSS frameworks (Bulma, Bootstrap)
+  - CSS modules
+  - CSS files (or SCSS)
+  - CSS-in-JS (`styled-components`, Tailwind)
 - For state management, you have several options:
-    - Vanilla react state, props and [context managers](https://reactjs.org/docs/context.html)
-    - [Redux](https://redux.js.org/)
-    - [SWR](https://swr.vercel.app/)
+  - Vanilla react state, props and [context managers](https://reactjs.org/docs/context.html)
+  - [Redux](https://redux.js.org/)
+  - [SWR](https://swr.vercel.app/)
 - For navigation:
-    - React Router
+  - React Router
 
 ### **Getting help**
 

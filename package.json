@@ -10,23 +10,19 @@
     "@types/node": "^16.11.59",
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "@vitejs/plugin-react": "^3.1.0",
+    "jsdom": "^21.1.0",
+    "normalize.css": "^8.0.1",
     "typescript": "^4.8.3",
+    "vite": "^4.1.1",
+    "vitest": "^0.28.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test": "vitest",
+    "serve": "vite preview"
   },
   "browserslist": {
     "production": [

@@ -1,18 +1,15 @@
-import './App.css';
+import Nav from './components/nav';
+import Courses from './components/courses';
+import Cart from './components/cart';
 
-import Nav from './components/Nav';
-import Courses from './components/Courses';
-import Cart from './components/Cart';
+// TODO: fix
+import 'normalize.css/normalize.css';
 
 function App() {
   return (
     <>
       <Nav />
-      <div style={{
-        width: '100%',
-        boxSizing: 'border-box',
-        padding: '0 calc(1rem + 10%)',
-      }}>
+      <div>
         <Courses />
         <Cart />
       </div>
